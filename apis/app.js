@@ -7,7 +7,6 @@ app.get('/contacts', (req, res) => {
     { firstName: 'Jane', lastName: 'Smith', phoneNumber: '5559876543' },
   ];
 
-  // Crear el XML
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<AddressBook>\n`;
   contacts.forEach((contact) => {
     xml += `
@@ -19,12 +18,9 @@ app.get('/contacts', (req, res) => {
   });
   xml += `\n</AddressBook>`;
 
-  // Configurar el tipo de respuesta como XML
   res.set('Content-Type', 'text/xml');
   res.send(xml);
 });
 
-// Iniciar el servidor en el puerto 3000
-app.listen(3000, () => {
-  console.log('Servidor corriendo en http://localhost:3000');
-});
+// Exportar la aplicación
+module.exports = app;
