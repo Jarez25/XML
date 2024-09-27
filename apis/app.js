@@ -22,5 +22,4 @@ app.get('/contacts', (req, res) => {
   res.send(xml);
 });
 
-// Exportar la aplicación
 module.exports = app;
